@@ -55,5 +55,9 @@ public class GuestDatabaseHelper extends SQLiteOpenHelper {
         return allGuest;
     }
 
+    public void deleteGuest(Guest deleteGuest){
+        String delete = "DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_GUEST_ID + " = " + deleteGuest.getGuestId();
+        getWritableDatabase().execSQL(delete);
+    }
 
 }

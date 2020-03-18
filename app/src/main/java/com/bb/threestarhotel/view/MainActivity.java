@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements GuestAdapter.Gues
 
         databaseHelper = new GuestDatabaseHelper(this);
         readDatabase();
-        addGuest();
+        //addGuest();
 
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView(guestRecyclerView);
@@ -106,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements GuestAdapter.Gues
         guestRecyclerView.addItemDecoration(itemDecoration);
     }
 
-    public void deleteGuest(Guest guest){}
+    @Override
+    public void deleteGuest(Guest guest){
+        databaseHelper.deleteGuest(guest);
+    }
 
 }

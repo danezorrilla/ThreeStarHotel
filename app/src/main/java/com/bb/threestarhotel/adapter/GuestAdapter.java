@@ -36,6 +36,11 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
         holder.nameTextView.setText(guestList.get(position).getGuestName());
         holder.roomNumberText.setText(guestList.get(position).getGuestRoomNumber());
 
+        holder.itemView.setOnClickListener(view -> {
+            System.out.println("Guest is clicked");
+            guestInterface.deleteGuest(guestList.get(position));
+        });
+
         Glide.with(holder.itemView.getContext())
                 .load(guestList.get(position).getGuestPicture())
                 .into(holder.imageView);
